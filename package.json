@@ -12,10 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
+    "ee-xml-to-json": "^1.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.6.4",
-    "sequelize": "^4.41.2"
+    "sequelize": "^4.41.2",
+    "unirest": "^0.5.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "chai": "^4.1.2",
