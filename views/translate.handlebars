@@ -6,6 +6,16 @@
 </div>
 <div class="container">
   <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="./translate">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./history">Search History</a>
+        </li>
+      </ul>
+    </div>
     <div class="card-body">
       <div id="home">
         <div class="container">
@@ -15,12 +25,13 @@
               <form class="clearfix mb-4" id="translate">
                 <div class="form-group">
                   <label for="example-text">Translate from:</label>
-                  <select id = "translate-from-language" required></select>
-                  <textarea class="form-control" id="translate-from-text" placeholder="What do you want to translate?" required></textarea>
+                  <select id="translate-from-language" required></select>
+                  <textarea class="form-control" id="translate-from-text" placeholder="What do you want to translate?"
+                    required></textarea>
                 </div>
                 <div class="form-group">
                   <label for="example-text">Translate to:</label>
-                  <select id = "translate-to-language" required></select>
+                  <select id="translate-to-language" required></select>
                   <textarea class="form-control" id="translate-to-text" placeholder="Translation generates here"
                     required></textarea>
                 </div>
