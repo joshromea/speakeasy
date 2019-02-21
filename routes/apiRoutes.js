@@ -4,8 +4,8 @@ module.exports = function (app) {
   // User login routes.
   // Get all Users
   app.get("/api/Users", function (req, res) {
-    db.User.findAll({}).then(function (dbUsers) {
-      res.json(dbUsers);
+    db.User.findAll({}).then(function (data) {
+      res.json(data);
     });
   });
 
@@ -26,8 +26,8 @@ module.exports = function (app) {
   // Translation routes.
   // Get all translations.
   app.get("/api/Translate", function (req, res) {
-    db.Translate.findAll({}).then(function (dbTranslate) {
-      res.json(dbUsers);
+    db.Translate.findAll({}).then(function (data) {
+      res.json(data);
     });
   });
 
