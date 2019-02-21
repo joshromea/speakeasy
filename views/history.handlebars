@@ -14,6 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="./history">Search History</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Sign Out</a>
+                </li>
             </ul>
         </div>
         <div class="card-body">
@@ -21,12 +24,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-8 offset-2">
-                            <p>
-                                <strong>User ID</strong>: {{test}}</p>
-                            <p>
-                                <strong>Translate from:</strong> {{test}}</p>
-                            <p>
-                                <strong>Translate To:</strong> {{test}}</p>
+                            <ul id="example-list" class="list-group">
+                                {{#each history}}
+                                <li data-id="{{id}}" class="list-group-item">
+                                    <button class="btn btn-danger float-right delete">ｘ</button>
+                                    <p>Translate from: {{translateFrom}}</p>
+                                    <p>Translate to: {{translateTo}}</p>
+                                </li>
+                                {{/each}}
+                            </ul>
                         </div>
 
                     </div>
@@ -55,4 +61,4 @@
 </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{{!-- <script src="/js/translate.js"></script> --}}
+<script src="/js/translate.js"></script>

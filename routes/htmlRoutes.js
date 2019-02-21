@@ -16,8 +16,14 @@ module.exports = function (app) {
   });
   // Displays the translation search history page of the user.
   app.get("/history", function (req, res) {
-
-    res.render("history");
+    //Get data from table
+    // (code goes here)
+    db.Translate.findAll({/*Where user is current user*/})
+    .then((data)=>{
+      res.render("history", {
+        history: data
+      });
+    })
   });
   // Prompts an error page if the above routes are not used.
    app.get("*", function (req, res) {
