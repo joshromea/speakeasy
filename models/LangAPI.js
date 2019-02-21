@@ -1,10 +1,9 @@
 const unirest = require('unirest')
 const transform = require('ee-xml-to-json')
 
-<<<<<<< HEAD
-const xmlTransform = () => {
+// const xmlTransform = () => {
 
-}
+// }
 
 function apiJSON() {
     unirest.get("https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=en&to=es&text=Hello%2C+world!")
@@ -13,7 +12,6 @@ function apiJSON() {
             let xmlString = result.body
         })
 }
-=======
 // req.params change if needed//
 let startLang
 let transLang
@@ -41,4 +39,3 @@ function langTranslateJSON() {
 }
 
 module.exports = xmlTransform, langTranslateJSON;
->>>>>>> language translate added

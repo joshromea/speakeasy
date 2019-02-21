@@ -1,0 +1,55 @@
+<div class="jumbotron jumbotron-fluid bg-secondary text-center">
+  <div class="container">
+    <h1 class="display-4">SpeakEasy</h1>
+    <p class="lead">Sample introduction/welcome text.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div id="home">
+        <div class="container">
+          <div class="row">
+            <div class="col-8 offset-2">
+              <h1>{{msg}}</h1>
+              <form class="clearfix mb-4" id="translate">
+                <div class="form-group">
+                  <label for="example-text">Translate from:</label>
+                  <select id = "translate-from-language" required></select>
+                  <textarea class="form-control" id="translate-from-text" placeholder="What do you want to translate?" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="example-text">Translate to:</label>
+                  <select id = "translate-to-language" required></select>
+                  <textarea class="form-control" id="translate-to-text" placeholder="Translation generates here"
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Translate</button>
+              </form>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{{!-- will fix styling later, footer is floating right now --}}
+<footer class="py-2 bg-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="column">(github logo will go here)
+        <img src="">
+        <a>Contact:</a>
+        <a href="" target="_blank">name</a> |
+        <a href="" target="_blank">name</a> |
+        <a href="" target="_blank">name</a> |
+        <a href="" target="_blank">name</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/translate.js"></script>
