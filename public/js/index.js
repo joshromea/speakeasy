@@ -13,7 +13,8 @@ $("#user-form").on("submit", function (event) {
     headers: {
       "Content-Type": "application/json"
     },
-    url: "/api/Users",
+    // url: "/api/Users",is this gonna break?
+    url: "/signin",
     data: JSON.stringify(body)
   }).then(function (data) {
 
@@ -22,4 +23,3 @@ $("#user-form").on("submit", function (event) {
   });
 
 });
-
