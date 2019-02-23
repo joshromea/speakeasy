@@ -1,6 +1,7 @@
 $(document).ready(function () {
+    event.preventDefault();
     // Delete button for history list.    
-    $(document).on("click", ".delete-history", function () {
+    $(document).on("click", "#del", function () {
         console.log("delete");
 
         // API call to delete posts
