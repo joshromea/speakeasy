@@ -35,9 +35,7 @@
                 <div class="form-group">
                   <label for="example-text">Translate to:</label>
                   <select id="translate-to-language" required></select>
-                  {{!-- Will need to make it a non-textarea, since the translation will generate here. --}}
-                  <textarea class="form-control" id="translate-to-text" placeholder="Translation generates here"
-                    required></textarea>
+                  <div id="translate-to-text">Sample text. Translation will go here</div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Translate</button>
               </form>

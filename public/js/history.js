@@ -1,6 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable prettier/prettier */
-
 $(document).ready(function () {
     event.preventDefault();
     // Delete button for history list.    
