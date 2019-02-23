@@ -18,7 +18,11 @@ module.exports = function (app) {
   app.get("/history", function (req, res) {
     //Get data from table
     // (code goes here)
-    db.Translate.findAll({/*Where user is current user*/})
+    db.Translate.findAll({
+      // where: {id: req.params.id}
+    
+    })
+
     .then((data)=>{
       res.render("history", {
         history: data
