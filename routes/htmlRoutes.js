@@ -34,13 +34,13 @@ module.exports = function (app) {
     db.Translate.findAll({/*Where user is current user*/ })
       .then((data) => {
         res.render("history", {
-          history: data
+          // history: data
         });
       })
   });
-  // Prompts an error page if the above routes are not used.
-  app.get("*", isLoggedIn, function (req, res) {
-    res.render("404");
+  // Logs the user out of their session.
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
   });
-};
-
+}

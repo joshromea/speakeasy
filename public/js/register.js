@@ -18,6 +18,10 @@ $("#user-form").on("submit", function (event) {
         console.log(data)
         // Once server replies, redirect to /translate.
         window.location = "/translate"
+    }).catch((err)=>{
+        console.log(err)
+        //Display to user that username is taken
+        $('.err').show()
     })
 
 })

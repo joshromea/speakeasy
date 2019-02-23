@@ -10,7 +10,7 @@ $(document).ready(function () {
             url: "/api/Translate" + id
         })
             .then(function () {
-
+                
 
             });
     });

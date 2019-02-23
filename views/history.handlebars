@@ -15,7 +15,7 @@
                     <a class="nav-link active" href="./history">Search History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Sign Out</a>
+                    <a class="nav-link" href="/logout">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -26,7 +26,7 @@
                         <div class="col-8 offset-2">
                             <ul id="example-list" class="list-group">
                                 {{#each history}}
-                                <li data-id="{{id}}" class="list-group-item">
+                                <li data-id="{{userId}}" class="list-group-item">
                                     <button class="delete-history btn btn-danger float-right">ｘ</button>
                                     <p>Translate from: {{translateFrom}}</p>
                                     <p>Translate to: {{translateTo}}</p>
@@ -34,7 +34,6 @@
                                 {{/each}}
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -60,15 +59,7 @@
 </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<script src="/js/translate.js">
-    <srcipt src="/js/history.js"></script>
-=======
+
 <script src="/js/translate.js"></script>
 <script src ="/js/history.js"></script>
->>>>>>> 05bc67e44906a56df5a4fd148bf3c13c68635e4f
-=======
-<script src="/js/translate.js"></script>
-<script src ="/js/history.js"></script>
->>>>>>> 05bc67e44906a56df5a4fd148bf3c13c68635e4f
+

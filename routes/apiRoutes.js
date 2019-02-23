@@ -1,13 +1,9 @@
 var db = require("../models");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 var passport = require('passport');
-=======
-=======
->>>>>>> 05bc67e44906a56df5a4fd148bf3c13c68635e4f
+
 var langTranslate = require("./LangAPI");
 
->>>>>>> 05bc67e44906a56df5a4fd148bf3c13c68635e4f
 module.exports = function (app) {
   // User login routes.
   app.post('/signin', passport.authenticate('local-signin', {
@@ -16,10 +12,13 @@ module.exports = function (app) {
   }
   ))
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/fail'
+    successRedirect: '/'
   }
-  ));
+  ), (req, res, next)=>{
+    if(!req.user){
+      res.json({success: false})
+    }
+  });
   // Get all Users
   app.get("/api/Users", function (req, res) {
     db.User.findAll({}).then(function (dbUsers) {

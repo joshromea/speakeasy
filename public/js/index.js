@@ -1,4 +1,4 @@
-// Log-in submit buttion
+// Log-in submit button
 $("#user-form").on("submit", function (event) {
   event.preventDefault();
   // get values from form and make a body().
@@ -19,8 +19,6 @@ $("#user-form").on("submit", function (event) {
   }).then(function (data) {
 
     // Once server replies, redirect to /translate.
-    window.location = "/translate"
+    window.location = "/translate";
   });
-
 });
-
