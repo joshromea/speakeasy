@@ -12,10 +12,13 @@ module.exports = function (app) {
   }
   ))
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/fail'
+    successRedirect: '/'
   }
-  ));
+  ), (req, res, next)=>{
+    if(!req.user){
+      res.json({success: false})
+    }
+  });
   // Get all Users
   app.get("/api/Users", function (req, res) {
     db.User.findAll({}).then(function (dbUsers) {
