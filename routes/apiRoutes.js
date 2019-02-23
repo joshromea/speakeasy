@@ -1,7 +1,17 @@
 var db = require("../models");
-
+var passport = require('passport');
 module.exports = function (app) {
   // User login routes.
+  app.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/translate',
+    failureRedirect: '/'
+  }
+  ))
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/fail'
+  }
+  ));
   // Get all Users
   app.get("/api/Users", function (req, res) {
     db.User.findAll({}).then(function (data) {
@@ -46,15 +56,4 @@ module.exports = function (app) {
   });
 };
 
-  // Get all examples
-  // app.get("/api/examples", function(req, res) {
-  //   unirest.get("https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=en&to=es&text=Hello%2C+world!")
-  //   .header("X-RapidAPI-Key", "wmtOHk6BKgmshNktC1LmQRv1cxBop1RRcDUjsn341ba0oWctPQ")
-  //   .end(function (result) {
-  //     console.log(result);
-  //     let xml = result;
-  //     let newJSON = parseXml(xml)
-  //     console.log(newJSON)
-  //     res.json(newJSON);
-  //   }
 
