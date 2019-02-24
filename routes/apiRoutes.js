@@ -50,18 +50,10 @@ module.exports = function (app) {
 
   // Create a new translated text.
   app.post("/api/Translate", function (req, res) {
-<<<<<<< HEAD
     langTranslate.langTranslateJSON(req.body.translateFromLanguage, req.body.translateToLanguage, req.body.translateFrom)
       .then(function (data) {
         res.json(data);
       });
-=======
-    console.log(req.body)
-    console.log(req.body.translateFrom)
-    console.log(req.body.translateFromLanguage)
-    console.log(req.body.translateToLanguage)
-    res.json(langTranslate.langTranslateJSON(req.body.translateFromLanguage, req.body.translateToLanguage, req.body.translateFrom))
->>>>>>> Need help with LangAPI data
   });
 
   // Get Speech from LangAPI//
