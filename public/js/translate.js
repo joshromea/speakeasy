@@ -8,7 +8,11 @@ $("#translate").on("submit", function (event) {
     translateFromLanguage: $("#translate-from-language").val(),
     translateToLanguage: $("#translate-to-language").val()
   };
+<<<<<<< HEAD
   console.log(body);
+=======
+  // console.log(`this is the body:${body}`);
+>>>>>>> Need help with LangAPI data
 
   // Make the post request.
   $.ajax({

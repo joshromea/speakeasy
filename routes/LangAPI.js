@@ -4,8 +4,14 @@ const transform = require("ee-xml-to-json");
 // Function to change XML String into JSON data//
 function xmlTransform(data) {
     transform(data).then(function (result) {
+<<<<<<< HEAD
         console.log(result);
     });
+=======
+        // SOMEWHERE HERE IT'S NOT RETURNING//
+        return result
+    })
+>>>>>>> Need help with LangAPI data
 }
 
 // API pull from Microsoft Lang Translator//
@@ -17,14 +23,23 @@ function langTranslateJSON(startLang, endLang, textString) {
             "X-RapidAPI-Key",
             "wmtOHk6BKgmshNktC1LmQRv1cxBop1RRcDUjsn341ba0oWctPQ"
         )
-        .end(result => {
+        .end(function (result) {
+            // OR SOMEWHERE HERE IT'S NOT RETURNING//
             let xmlString = result.body;
+<<<<<<< HEAD
             xmlTransform(xmlString);
             return xmlTransform;
+=======
+            console.log(xmlString)
+            const newXML = xmlTransform(xmlString)
+            console.log(newXML)
+            return newXML
+>>>>>>> Need help with LangAPI data
         });
 }
 
-// console.log(langTranslateJSON('en', 'es', 'hello+world'))
+// BUT WHEN YOU RUN IT THIS LOG WORKS//
+console.log(langTranslateJSON('en', 'es', 'hello+world'))
 
 
 //API pull for Microsoft Lang translate//
