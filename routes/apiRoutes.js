@@ -14,9 +14,9 @@ module.exports = function (app) {
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/'
   }
-  ), (req, res, next)=>{
-    if(!req.user){
-      res.json({success: false})
+  ), (req, res, next) => {
+    if (!req.user) {
+      res.json({ success: false })
     }
   });
   // Get all Users
@@ -50,10 +50,13 @@ module.exports = function (app) {
 
   // Create a new translated text.
   app.post("/api/Translate", function (req, res) {
-    langTranslate.langTranslateJSON(req.body.translateFromLanguage, req.body.translateToLanguage, req.body.translateFrom)
-      .then(function (data) {
-        res.json(data);
-      });
+    // These console.logs are here to show we are getting the right data from the front end that we need to push//
+    console.log(req.body)
+    console.log(req.body.translateFromLanguage)
+    console.log(req.body.translateToLanguage)
+    console.log(req.body.translateFrom)
+    res.send(langTranslate.langTranslateJSON(req.body.translateFromLanguage, req.body.translateToLanguage, req.body.translateFrom))
+
   });
 
   // Get Speech from LangAPI//

@@ -2,9 +2,11 @@ const unirest = require("unirest");
 const transform = require("ee-xml-to-json");
 
 // Function to change XML String into JSON data//
+// This shows the expected json data we are trying to push back to the front end. It can be see in your terminal when ran//
 function xmlTransform(data) {
     transform(data).then(function (result) {
-        console.log(result);
+        console.log(result)
+        return result
     });
 }
 
@@ -18,9 +20,10 @@ function langTranslateJSON(startLang, endLang, textString) {
             "wmtOHk6BKgmshNktC1LmQRv1cxBop1RRcDUjsn341ba0oWctPQ"
         )
         .end(result => {
+            // The problem is right here if I had to guess. I'm not sure if i'm returning the result properly//
             let xmlString = result.body;
             xmlTransform(xmlString);
-            return xmlTransform;
+            return
         });
 }
 
@@ -41,4 +44,4 @@ function speech(textString, langAudio) {
         });
 }
 
-module.exports = xmlTransform, langTranslateJSON, speech;
+module.exports = { xmlTransform, langTranslateJSON, speech }
