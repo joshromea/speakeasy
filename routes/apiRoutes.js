@@ -1,24 +1,33 @@
-var db = require("../models");
+let db = require("../models");
 
-var passport = require('passport');
+let passport = require("passport");
 
-var langTranslate = require("./LangAPI");
+let langTranslate = require("./LangAPI");
+
+let unirest = require('unirest')
+
+const parseString = require('xml2js').parseString
 
 module.exports = function (app) {
   // User login routes.
-  app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/translate',
-    failureRedirect: '/'
-  }
-  ))
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/'
-  }
-  ), (req, res, next) => {
-    if (!req.user) {
-      res.json({ success: false })
+  app.post(
+    "/signin",
+    passport.authenticate("local-signin", {
+      successRedirect: "/translate",
+      failureRedirect: "/"
+    })
+  );
+  app.post(
+    "/signup",
+    passport.authenticate("local-signup", {
+      successRedirect: "/"
+    }),
+    (req, res, next) => {
+      if (!req.user) {
+        res.json({ success: false });
+      }
     }
-  });
+  );
   // Get all Users
   app.get("/api/Users", function (req, res) {
     db.User.findAll({}).then(function (dbUsers) {
@@ -51,21 +60,30 @@ module.exports = function (app) {
   // Create a new translated text.
   app.post("/api/Translate", function (req, res) {
     // These console.logs are here to show we are getting the right data from the front end that we need to push//
-    console.log(req.body)
-    console.log(req.body.translateFromLanguage)
-    console.log(req.body.translateToLanguage)
-    console.log(req.body.translateFrom)
-    res.send(langTranslate.langTranslateJSON(req.body.translateFromLanguage, req.body.translateToLanguage, req.body.translateFrom))
-
+    let queryURL = `https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=${req.body.translateFromLanguage}&to=${req.body.translateToLanguage}&text=${req.body.translateFrom}`;
+    unirest
+      .get(queryURL)
+      .header(
+        "X-RapidAPI-Key",
+        "wmtOHk6BKgmshNktC1LmQRv1cxBop1RRcDUjsn341ba0oWctPQ"
+      )
+      .end(result => {
+        let xmlString = result.body
+        parseString(xmlString, function (err, data) {
+          console.log(data)
+          res.send(JSON.stringify(data))
+        })
+      })
   });
 
   // Get Speech from LangAPI//
-  app.get("/api/Translate/audio", function (req, res) {
-    langTranslate.speech(req.body.translateToLanguage, req.body.translateFrom)
+  app.post("/api/Translate/audio", function (req, res) {
+    langTranslate
+      .speech(req.body.translateToLanguage, req.body.translateFrom)
       .then(function (data) {
-        res.send(data)
-      })
-  })
+        res.send(data);
+      });
+  });
 
   // Delete an translation by id
   app.delete("/api/Translate/:id", function (req, res) {
@@ -74,5 +92,3 @@ module.exports = function (app) {
     });
   });
 };
-
-
