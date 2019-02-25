@@ -2,8 +2,6 @@ let db = require("../models");
 
 let passport = require("passport");
 
-let langTranslate = require("./LangAPI");
-
 let unirest = require('unirest')
 
 const parseString = require('xml2js').parseString
@@ -65,7 +63,7 @@ module.exports = function (app) {
       .get(queryURL)
       .header(
         "X-RapidAPI-Key",
-        "wmtOHk6BKgmshNktC1LmQRv1cxBop1RRcDUjsn341ba0oWctPQ"
+        process.env.API_KEY
       )
       .end(result => {
         let xmlString = result.body
@@ -73,17 +71,31 @@ module.exports = function (app) {
           console.log(data)
           res.send(JSON.stringify(data))
         })
+
       })
   });
 
+  // app.post("/api/audio", function (req, res) {
+  //   let queryURL = `https://microsoft-azure-translation-v1.p.rapidapi.com/Speak?text=${req.body.translateFrom}&language=${req.body.translateToLanguage}`
+  //   unirest
+  //     .get(queryURL)
+  //     .header(
+  //       "X-RapidAPI-Key",
+  //       process.env.API_KEY
+  //     )
+  //     .end(result => {
+  //       let xmlString = result.body
+  //       parseString(xmlString, function (err, data) {
+  //         console.log(data)
+  //         res.send(JSON.stringify(data))
+  //       })
+  //     })
+  // })
+
   // Get Speech from LangAPI//
-  app.post("/api/Translate/audio", function (req, res) {
-    langTranslate
-      .speech(req.body.translateToLanguage, req.body.translateFrom)
-      .then(function (data) {
-        res.send(data);
-      });
-  });
+  // app.post("/api/Translate", function (req, res) {
+  //   let queryURL = `https://microsoft-azure-translation-v1.p.rapidapi.com/Speak?text=${}&language=${langAudio}`
+  // })
 
   // Delete an translation by id
   app.delete("/api/Translate/:id", function (req, res) {
