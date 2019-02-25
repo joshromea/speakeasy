@@ -1,21 +1,19 @@
-<div class="jumbotron jumbotron-fluid bg-secondary text-center">
+<div class="jumbotron jumbotron-fluid text-center">
   <div class="container">
     <h1 class="display-4">SpeakEasy</h1>
-    <p class="lead">Sample introduction/welcome text.</p>
+    <p class="lead">Translations Without Prohibition</p>
   </div>
 </div>
 <div class="container">
   <div class="card">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="./translate">Home</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="./history">Search History</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Sign Out</a>
+          <a class="nav-link" href="/">Sign Out</a>
         </li>
       </ul>
     </div>
@@ -35,8 +33,7 @@
                 <div class="form-group">
                   <label for="example-text">Translate to:</label>
                   <select id="translate-to-language" required></select>
-                  <div id="translate-to-text"></div>
-                  <p>{{result}}</p>
+                  <div id="translate-to-text">Sample text. Translation will go here</div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Translate</button>
               </form>
@@ -48,22 +45,20 @@
     </div>
   </div>
 </div>
-<br>
-{{!-- will fix styling later, footer is floating right now --}}
-<footer class="py-2 bg-secondary">
-  <div class="container">
-    <div class="row">
-      <div class="column">(github logo will go here)
-        <img src="">
-        <a>Contact:</a>
-        <a href="" target="_blank">name</a> |
-        <a href="" target="_blank">name</a> |
-        <a href="" target="_blank">name</a> |
-        <a href="" target="_blank">name</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<br> {{!-- will fix styling later, footer is floating right now --}} {{!-- <footer class="py-2 bg-secondary">
+ <div class="container">
+   <div class="row">
+     <div class="column">(github logo will go here)
+       <img src="">
+       <a>Contact:</a>
+       <a href="" target="_blank">name</a> |
+       <a href="" target="_blank">name</a> |
+       <a href="" target="_blank">name</a> |
+       <a href="" target="_blank">name</a>
+     </div>
+   </div>
+ </div>
+</footer> --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/translate.js"></script>

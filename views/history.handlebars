@@ -1,7 +1,7 @@
-<div class="jumbotron jumbotron-fluid bg-secondary text-center">
+<div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
         <h1 class="display-4">SpeakEasy</h1>
-        <p class="lead">Sample introduction/welcome text.</p>
+        <p class="lead">Translations Without Prohibition</p>
     </div>
 </div>
 <div class="container">
@@ -9,13 +9,10 @@
         <div class="card-header">
             <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
-                    <a class="nav-link" href="./translate">Home</a>
+                    <a class="nav-link" href="./translate">New Translation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="./history">Search History</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Sign Out</a>
+                    <a class="nav-link" href="/">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -26,7 +23,7 @@
                         <div class="col-8 offset-2">
                             <ul id="example-list" class="list-group">
                                 {{#each history}}
-                                <li data-id="{{userId}}" class="list-group-item">
+                                <li data-id="{{id}}" class="list-group-item">
                                     <button class="delete-history btn btn-danger float-right">ｘ</button>
                                     <p>Translate from: {{translateFrom}}</p>
                                     <p>Translate to: {{translateTo}}</p>
@@ -34,6 +31,7 @@
                                 {{/each}}
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -42,24 +40,21 @@
 </div>
 </div>
 </div>
-<br> {{!-- will fix styling later, footer is floating right now --}}
-<footer class="py-2 bg-secondary">
-    <div class="container">
-        <div class="row">
-            <div class="column">(github logo will go here)
-                <img src="">
-                <a>Contact:</a>
-                <a href="" target="_blank">name</a> |
-                <a href="" target="_blank">name</a> |
-                <a href="" target="_blank">name</a> |
-                <a href="" target="_blank">name</a>
-            </div>
-        </div>
-    </div>
-</footer>
+<br> {{!-- will fix styling later, footer is floating right now --}} {{!-- <footer class="py-2 bg-secondary">
+   <div class="container">
+       <div class="row">
+           <div class="column">(github logo will go here)
+               <img src="">
+               <a>Contact:</a>
+               <a href="" target="_blank">name</a> |
+               <a href="" target="_blank">name</a> |
+               <a href="" target="_blank">name</a> |
+               <a href="" target="_blank">name</a>
+           </div>
+       </div>
+   </div>
+</footer> --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script src="/js/translate.js"></script>
-<script src ="/js/history.js"></script>
-
+<script src="/js/history.js"></script>

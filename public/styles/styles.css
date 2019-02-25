@@ -1,6 +1,56 @@
 .list-group-item {
   line-height: 2.5;
-}
-.err{
-  display: none;
-}
+ }
+ body{
+  background-image: url('../imgs/geo.jpg');
+  background-size: cover;
+ }
+ .jumbotron{
+  text-align: center;
+  background-color:black;
+  color: rgb(163, 118, 4);
+  font-family: 'Limelight', cursive;
+  font-size: 8rem;
+  border-style: double;
+  border-width: 15px;
+  border-color:(163, 118, 4);
+ }
+ .display-4 {
+  font-size: 8rem;
+  font-weight: 200;
+  line-height: 1.2;
+ }
+ .col-8{
+  margin:auto;
+  background-color:  rgb(240, 184, 44);
+  color: black;
+  padding: 15px;
+  border-style: double;
+  border-width: 15px;
+  font-family:'Limelight',cursive;
+  text-align: center;
+ 
+ }
+ .btn{
+  background-color: black;
+  color: rgb(163, 118, 4);
+ }
+ .card-body{
+  text-align: center;
+  background-color:  rgb(240, 184, 44);
+  color: black;
+ }
+ .card-header{
+  text-align: center;
+  background-color:black;
+  color: rgb(163, 118, 4);
+  border-style: double;
+  border-width: 10px;
+  font-family:'Limelight',cursive;
+  text-align: center;
+ }
+ .col-7{
+ margin:auto;
+ font-family:'Limelight',cursive;
+ font-size: 24px;
+ }
