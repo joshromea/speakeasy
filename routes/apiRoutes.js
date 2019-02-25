@@ -1,10 +1,8 @@
 var db = require("../models");
-<<<<<<< HEAD
+
 var passport = require('passport');
-=======
 var langTranslate = require("./LangAPI");
 
->>>>>>> 05bc67e44906a56df5a4fd148bf3c13c68635e4f
 module.exports = function (app) {
   // User login routes.
   app.post('/signin', passport.authenticate('local-signin', {
