@@ -22,15 +22,16 @@ $("#translate").on("submit", function (event) {
   }).then(function (result) {
     console.log(`this is the result:${result}`)
     let newJSON = JSON.parse(result)
-    console.log(newJSON)
-
-
+    console.log(newJSON.string._)
+    let translateStr = newJSON.string._
+    let translateDiv = $(`<div>`)
+    let translate = $('<h1>').text(translateStr)
+    translateDiv.append(translate)
+    $("#translate-to-text").prepend(translateDiv)
   });
 });
 
-// Array of language options that is dynamically pushed to the translate.handlebars form.
-
-//  ** Will need backend data to be put into this array. Make a ajax request of language list **
+// Array of language options that is in the translate.handlebars form.
 let languages = [
   "ar",
   "ar-eg",
