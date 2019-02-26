@@ -1,6 +1,6 @@
 $(document).ready(function () {
     event.preventDefault();
-    // Delete button for history list.    
+    // Delete button for history list.
     $(document).on("click", "#del", function () {
         console.log("delete");
 
@@ -8,10 +8,7 @@ $(document).ready(function () {
         $.ajax({
             method: "DELETE",
             url: "/api/Translate" + id
-        })
-            .then(function () {
-                
-
-            });
+            // eslint-disable-next-line no-empty-function
+        }).then(function () { });
     });
 });

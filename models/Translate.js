@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   //define the name of the model//
-  var Translate = sequelize.define("Translate", {
+  let Translate = sequelize.define("Translate", {
     translateFrom: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,4 +27,3 @@ module.exports = function (sequelize, DataTypes) {
   // };
   return Translate;
 };
-
