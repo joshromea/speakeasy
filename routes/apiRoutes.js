@@ -2,9 +2,9 @@ let db = require("../models");
 
 let passport = require("passport");
 
-let unirest = require('unirest')
+let unirest = require("unirest");
 
-const parseString = require('xml2js').parseString
+const parseString = require("xml2js").parseString;
 
 module.exports = function (app) {
   // User login routes.
@@ -58,21 +58,19 @@ module.exports = function (app) {
   // Create a new translated text.
   app.post("/api/Translate", function (req, res) {
     // These console.logs are here to show we are getting the right data from the front end that we need to push//
-    let queryURL = `https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=${req.body.translateFromLanguage}&to=${req.body.translateToLanguage}&text=${req.body.translateFrom}`;
+    let queryURL = `https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=${
+      req.body.translateFromLanguage
+      }&to=${req.body.translateToLanguage}&text=${req.body.translateFrom}`;
     unirest
       .get(queryURL)
-      .header(
-        "X-RapidAPI-Key",
-        process.env.API_KEY
-      )
+      .header("X-RapidAPI-Key", process.env.API_KEY)
       .end(result => {
-        let xmlString = result.body
+        let xmlString = result.body;
         parseString(xmlString, function (err, data) {
-          console.log(data)
-          res.send(JSON.stringify(data))
-        })
-
-      })
+          console.log(data);
+          res.send(JSON.stringify(data));
+        });
+      });
   });
 
   // app.post("/api/audio", function (req, res) {

@@ -6,7 +6,9 @@ $("#translate").on("submit", function (event) {
     translateFrom: $("#translate-from-text")
       .val()
       .trim(),
-    translateTo: $("#translate-to-text").val().trim(),
+    translateTo: $("#translate-to-text")
+      .val()
+      .trim(),
     translateFromLanguage: $("#translate-from-language").val(),
     translateToLanguage: $("#translate-to-language").val()
   };
@@ -21,15 +23,15 @@ $("#translate").on("submit", function (event) {
     url: "/api/Translate",
     data: JSON.stringify(body)
   }).then(function (result) {
-    console.log(body.translateTo)
-    console.log(`this is the result:${result}`)
-    let newJSON = JSON.parse(result)
-    console.log(newJSON.string._)
-    let translateStr = newJSON.string._
-    let translateDiv = $(`<div>`)
-    let translate = $('<h1>').text(translateStr)
-    translateDiv.append(translate)
-    $("#translate-to-text").html(translateDiv)
+    console.log(body.translateTo);
+    console.log(`this is the result:${result}`);
+    let newJSON = JSON.parse(result);
+    console.log(newJSON.string._);
+    let translateStr = newJSON.string._;
+    let translateDiv = $("<div>");
+    let translate = $("<h1>").text(translateStr);
+    translateDiv.append(translate);
+    $("#translate-to-text").html(translateDiv);
   });
 });
 

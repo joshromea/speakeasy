@@ -1,14 +1,14 @@
 require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
-var passport = require('passport')
-var session = require('express-session')
-var bodyParser = require('body-parser')
+let express = require("express");
+let exphbs = require("express-handlebars");
+let passport = require("passport");
+let session = require("express-session");
+let bodyParser = require("body-parser");
 
-var db = require("./models");
+let db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+let app = express();
+let PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
@@ -36,9 +38,9 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require('./config/passport.js')(passport, db.User);
+require("./config/passport.js")(passport, db.User);
 
-var syncOptions = { force: false };
+let syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
